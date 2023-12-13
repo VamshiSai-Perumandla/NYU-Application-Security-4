@@ -1,4 +1,4 @@
-package com.example.giftcardsite
+package com.example.giftcardsite 
 
 import android.Manifest
 import android.content.Context
