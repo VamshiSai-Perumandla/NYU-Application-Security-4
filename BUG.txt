@@ -1,0 +1,9 @@
+
+Background:
+The application's backend, which handles API requests from the Android app, is a standard web API and can be accessed through various interfaces. During API testing, the CURL tool was employed to test the API using the Authorization token obtained from user registration and login.
+
+Vulnerability:
+A security flaw has been detected in the REST API. This flaw allows a legitimate user to use their valid Authorization token along with the unused card ID of another user, leading to unauthorized card usage. For example, I have two users in my system, "rdemo" and "test". Even though the "test" user has purchased cards, "rdemo" can exploit them by sending a PUT request to the API endpoint with "rdemo's" authorization token and the card ID belonging to "test". This vulnerability arises from the REST API's failure to verify whether the user is permitted to use the specified card. While the API does confirm the legitimacy of the user via the authorization token, it neglects to check the user's rights over the card in question.
+
+Fix:
+To rectify this issue and eliminate the vulnerability, an extra verification step should be integrated into the REST API's processing of PUT requests for card usage. This additional verification should confirm that the card being used is among those purchased by the user. If the user does not own the card, an error message should be generated. Implementing this check on the client side (Android application) is not a sufficient solution. The reason is that the REST API is responsible for processing all requests. If the validation is only done on the client side, adversaries can easily circumvent these checks and directly submit requests to the API endpoint using tools like CURL or Python. As a result, bypassing client-side checks would lead to the reappearance and persistence of the vulnerability.
