@@ -1,0 +1,20 @@
+Background:
+    The backend of the application that processes API requests from the Android application is accessible through any interface, just like any other web API.
+    During API testing, the CURL tool was used to test the API by utilizing the Authorization token received during user registration and login.
+
+Vulnerability:
+    A vulnerability has been identified in the REST API, where a legit user can provide his/her valid Authorization token with an unused card ID of another user, and the card will be utilized.
+    I have two registered user "rdemo" and "test". 
+    Although test user has brought the cards, rdemo can use them by sending the PUT request to the REST API endpoint with authorization token of rdemo and card ID of the test user's car.
+    This issue is due to the lack of an authorization check by the REST API.
+    While the API checks if the request is made by a legitimate user using the authorization token, it fails to check if the user is authorized to use the provided card.
+
+Fix:
+    To address this issue and fix the vulnerability, an additional check should be implemented in the REST API endpoint when processing a user's PUT request to use a card. 
+    This check should ensure that the given card is in the user's list of purchased cards. 
+    If the card is not on the list, an error should be returned.
+    Placing the additional check on the client side (andriod application) would not resolve the issue and fix the vulnerability.
+    That is because the REST API endpoint is the one processing all the requests.
+    If one checks the requests on the client side there always a way for an adversary to bypass the client side checks and send the request directly to the API endpoint.
+    In this case adversary can send the PUT requests directly to API endpoint using CURL, Python or any other tools.
+    Once adversary bypasses the client side checks the vulnerbaility resurfaces and thus unresolved.
