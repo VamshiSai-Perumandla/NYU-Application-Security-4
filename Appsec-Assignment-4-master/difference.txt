@@ -1,9 +1,0 @@
-Answers:
-    1. The two types of Intents in Android are Implicit and Explicit Intents.
-    2. Explicit Intent is secure. Using an implicit intent to start a Service can be a unsecure as it allows any app to potentially respond to the intent, making it difficult to ensure that the intended Service is launched.
-    3. The Intent on lines 69 to 73 of SecondFragment.kt is an Implicit Intent.
-    4. The Intent on lines 68 to 70 of ThirdFragment.kt is an Explicit Intent.
-    5. Explicit Intent is the proper way to do an Intent in Android, as they are more secure because they specify the target component and reduce the chances of unintended consequences or malicious activity.
-
-Changes:
-    Changed the lines 69 to 73 of SecondFragment.kt as it is an Implicit Intent and replaced the code with similar functionality in Explicit Intent form as it is more secure.
