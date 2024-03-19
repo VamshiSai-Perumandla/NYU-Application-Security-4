@@ -36,7 +36,7 @@ Next, you will need to install Android Studio at the following link:
 https://developer.android.com/studio/
 ```
 
-**Unlike previous assignments, we recommend doing this on your Host Machine, not
+**Unlike previous works, we recommend doing this on your Host Machine, not
 a Virtual Machine running Linux.** Android studio works for Windows, Linux, Mac,
 and Chrome OS, so most of your platforms should be covered. If you have a
 different platform than listed above, please reach out to your instructor or TA.
@@ -95,15 +95,6 @@ start up, but it should eventually appear and then start the app.
 While the app is running, you may want to click on the "Run" and "Logcat" tabs
 on the bottom of the IDE to see debug messages printed out by the app from
 `Log.d()`.
-
-## What to submit
-To remain consistent with our other coding assignments, please complete the following:
-* At least one signed git commit
-* Use GitHub Actions to automate testing of your code.
-  You can look at the template [here](https://github.com/actions/starter-workflows/blob/main/ci/android.yml).
-  There is no need to write unit tests (although you can if you want to!).
-  But I expect at a minimum to use Gradle to automatically test if your code can compile. 
-* Read this [document](https://docs.gradle.org/current/userguide/command_line_interface.html) to have a better understanding of what Gradle does.
 
 ## Part 2: It's all about intent
 
@@ -206,62 +197,3 @@ You should remove all necessary code in (at least) the following files:
 2. UserInfo.kt
 3. CardScrollingActivity.kt
 4. ProductScrollingActivity.kt
-
-## Grading
-
-Total points: 100
-
-Part 1 is worth 10 points:
-
-* 5 points for at least one signed git commit
-* 5 points for using GitHub actions to confirm the Android code can compile
-
-Part 2 is worth 20 points:
-
-* 5 points for answering the questions.
-* 5 points for fixing the correct intent.
-* 10 points for correcting the Manifest.
-
-Part 3 is worth 20 points:
-
-* 2 points for each file correctly modified to use HTTPS.
-
-Part 4 is worth 20 points:
-
-* 10 points for identifying the cause of the vulnerability.
-* 10 points for describing a potential solution.
-
-Part 5 is worth 30 points:
-
-* 10 points for removing unneeded permissions.
-* 10 points for removing metric collection API calls.
-* 10 points for removing interaction with sensors.
-
-## What to Submit
-
-The repository should contain all the files of the Android project, plus the
-text files BUG.txt and difference.txt.
-
-To submit your code, please submit a file called `git_link.txt` that contains the name of your repository. 
-For example, if your GitHub account username is exampleaccount, you would submit a text file named `git_link.txt` to 
-Gradescope with only one line that reads the following:
-
-    assignment-4-exampleaccount
-
-The auto-grader will automatically find your code and download it.
-
-The TA will be looking for the following files on your Gradescope:
-* `git_link.txt`
-* `difference.txt`
-* `BUG.txt`  
-Having the write-ups be submitted would make it easier for the TA to grade as
-the TA would not need to go to your GitHub repository. 
-Please be sure to have your written parts in your repository too.
-
-
-## Concluding Remarks
-
-Despite the fixes you've made, there are almost certainly still many
-bugs lurking in the application, and the overall design of the application could
-be better done. With enough changes, this application could serve as a decent
-front-end for a REST API, but that API would also have to be audited.
